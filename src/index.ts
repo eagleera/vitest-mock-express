@@ -1,4 +1,4 @@
-import { Mock } from 'vitest'
+import type { Mock } from 'vitest'
 export interface EventEventEmitter {
   addListener?: Mock
   on?: Mock

@@ -4,8 +4,8 @@ import type { Writable } from 'stream'
 import type { Response } from 'express'
 
 // Local Types
-import type { EventEventEmitter } from '../index'
-import { Mock } from 'vitest'
+import type { EventEventEmitter } from '../index.js'
+import type { Mock } from 'vitest'
 
 interface StreamWritable extends EventEventEmitter {
   writable?: Writable['writable']

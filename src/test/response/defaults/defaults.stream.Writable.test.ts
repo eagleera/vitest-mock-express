@@ -1,6 +1,6 @@
 // Tested Module
 import { describe, test, expect, Mock, vi } from 'vitest'
-import getMockRes from '../../../response/response'
+import getMockRes from '../../../response/response.js'
 
 describe('response - Defaults for "stream.Writable" (accepts no arguments and return default values)', () => {
   test('res.writable is a boolean', () => {

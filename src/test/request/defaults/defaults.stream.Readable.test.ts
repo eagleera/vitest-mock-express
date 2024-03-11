@@ -1,6 +1,6 @@
 // Tested Module
 import { describe, test, expect, Mock } from 'vitest'
-import getMockReq from '../../../request/request'
+import getMockReq from '../../../request/request.js'
 
 describe('request - Defaults from "stream.Readable" (accepts no arguments and return default values)', () => {
   test('req.readable is a boolean', () => {

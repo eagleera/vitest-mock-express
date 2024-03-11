@@ -2,7 +2,8 @@
 import type { Response, NextFunction } from 'express'
 
 // Local Types
-import type { MockResponse } from './index'
+import type { MockResponse } from './index.js'
+import { vi } from 'vitest'
 
 /**
  * Returns a mocked version of key **Express** components, including:

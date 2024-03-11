@@ -1,6 +1,6 @@
 // Tested Module
 import { describe, test, expect } from 'vitest'
-import getMockReq from '../../request/request'
+import getMockReq from '../../request/request.js'
 
 const DEFAULT_REQ_KEY_LENGTH = 80
 

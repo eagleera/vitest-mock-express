@@ -2,7 +2,8 @@
 import type { Request } from 'express'
 
 // Local Types
-import type { MockRequest } from './index'
+import type { MockRequest } from './index.js'
+import { vi } from 'vitest'
 
 /**
  * Returns a mocked **Express** `Request` with mocked functions and default values.

@@ -1,9 +1,10 @@
 {
   "name": "vitest-mock-express",
-  "version": "2.0.3",
+  "version": "2.2.0",
   "description": "A lightweight Vitest mock for unit testing Express",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "type": "module",
   "scripts": {
     "test": "vitest run --coverage",
     "test-verbose": "vitest run --coverage --reporter verbose",

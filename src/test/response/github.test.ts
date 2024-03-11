@@ -1,6 +1,6 @@
 // Tested Module
 import { describe, test, expect } from 'vitest'
-import getMockRes from '../../response/response'
+import getMockRes from '../../response/response.js'
 
 describe('response - GitHub Issues', () => {
   test('issue #32', () => {

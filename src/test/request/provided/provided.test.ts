@@ -3,7 +3,7 @@ import { describe, test, expect } from 'vitest'
 import type { Request } from 'express-serve-static-core'
 
 // Tested Module
-import getMockReq from '../../../request/request'
+import getMockReq from '../../../request/request.js'
 
 describe('request - Provided (accepts arguments and returns expected values)', () => {
   test('it allows custom properties', () => {

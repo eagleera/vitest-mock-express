@@ -1,6 +1,6 @@
 // Tested Module
 import { describe, test, expect, Mock } from 'vitest'
-import getMockRes from '../../../response/response'
+import getMockRes from '../../../response/response.js'
 
 describe('response - Defaults for "http.OutgoingMessage" (accepts no arguments and return default values)', () => {
   test('res.req is an empty object', () => {

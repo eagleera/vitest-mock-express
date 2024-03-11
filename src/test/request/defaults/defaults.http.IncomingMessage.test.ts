@@ -1,6 +1,6 @@
 // Tested Module
 import { describe, test, expect, Mock } from 'vitest'
-import getMockReq from '../../../request/request'
+import getMockReq from '../../../request/request.js'
 
 describe('request - Defaults from "http.IncomingMessage" (accepts no arguments and return default values)', () => {
   test('req.aborted is a boolean', () => {

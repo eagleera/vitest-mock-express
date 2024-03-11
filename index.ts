@@ -1,4 +1,4 @@
-import getMockReq from './src/request/request'
-import getMockRes from './src/response/response'
+import getMockReq from './src/request/request.js'
+import getMockRes from './src/response/response.js'
 
 export { getMockReq, getMockRes }

@@ -1,9 +1,9 @@
 // Helpers
 import { describe, test, expect } from 'vitest'
-import { callAllFunctions } from '../helpers/response'
+import { callAllFunctions } from '../helpers/response.js'
 
 // Tested Module
-import getMockRes from '../../response/response'
+import getMockRes from '../../response/response.js'
 
 export const DEFAULT_RES_KEY_LENGTH = 84
 

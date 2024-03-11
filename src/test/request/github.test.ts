@@ -3,7 +3,7 @@ import { describe, test, expect } from 'vitest'
 import type { Request } from 'express'
 
 // Tested Module
-import getMockReq from '../../request/request'
+import getMockReq from '../../request/request.js'
 
 describe('request - GitHub Issues', () => {
   test('issue #6', () => {

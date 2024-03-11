@@ -1,6 +1,6 @@
 // Tested Module
 import { describe, test, expect, Mock } from 'vitest'
-import getMockRes from '../../../response/response'
+import getMockRes from '../../../response/response.js'
 
 describe('response - Defaults from "express.Express" (accepts no arguments and return default values)', () => {
   test('res.status is a mocked function', () => {

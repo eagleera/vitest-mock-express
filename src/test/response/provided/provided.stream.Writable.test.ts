@@ -1,9 +1,9 @@
 // Helpers
 import { describe, test, expect } from 'vitest'
-import { providedFunction, providedNumber, providedBoolean } from '../../helpers/provided'
+import { providedFunction, providedNumber, providedBoolean } from '../../helpers/provided.js'
 
 // Tested Module
-import getMockRes from '../../../response/response'
+import getMockRes from '../../../response/response.js'
 
 describe('response - Provided for "stream.Writable" (accepts arguments and returns expected values)', () => {
   test('res.writable can be provided', () => {

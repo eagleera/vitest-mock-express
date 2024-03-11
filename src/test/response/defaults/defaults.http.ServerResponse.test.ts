@@ -3,7 +3,7 @@ import { describe, test, expect, Mock } from 'vitest'
 import { Socket } from 'net'
 
 // Tested Module
-import getMockRes from '../../../response/response'
+import getMockRes from '../../../response/response.js'
 
 describe('response - Defaults for "http.ServerResponse" (accepts no arguments and return default values)', () => {
   test('res.statusCode is a number', () => {

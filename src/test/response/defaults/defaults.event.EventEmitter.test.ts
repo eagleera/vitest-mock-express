@@ -1,6 +1,6 @@
 // Tested Module
 import { describe, test, expect, Mock, vi } from 'vitest'
-import getMockRes from '../../../response/response'
+import getMockRes from '../../../response/response.js'
 
 describe('response - Defaults for "event.EventEmitter" (accepts no arguments and return default values)', () => {
   test('res.addListener is a mocked function', () => {

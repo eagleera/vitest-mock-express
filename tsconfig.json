@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es6",
+    "target": "ESNext",
     "declaration": true,
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": false,
@@ -12,8 +12,8 @@
     "baseUrl": ".",
     "noImplicitAny": true,
     "forceConsistentCasingInFileNames": true,
-    "module": "commonjs",
-    "moduleResolution": "node",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
     "resolveJsonModule": true,
     "outDir": "dist",
     "types": ["vitest/globals"]
