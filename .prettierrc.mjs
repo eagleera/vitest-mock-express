@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   semi: false,
   trailingComma: 'all',
   singleQuote: true,
@@ -9,4 +9,5 @@ module.exports = {
   arrowParens: 'always', // Needed for the type in Typescript
   bracketSpacing: true,
   bracketSameLine: true,
+  endOfLine: 'lf', // Enforce LF so linting is consistent on Windows and Linux
 }

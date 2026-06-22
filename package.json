@@ -9,7 +9,7 @@
     "test-verbose": "vitest --coverage --verbose",
     "test-watch": "vitest \"/*.ts\" --watchAll",
     "test-watch-all": "vitest --watchAll",
-    "lint": "tsc --noEmit && eslint '*/**/*.{js,ts}' --quiet --fix",
+    "lint": "tsc --noEmit && eslint . --quiet --fix",
     "build": "tsc",
     "clean": "rm -rf dist/*",
     "prepublishOnly": "npm ci && npm run clean && npm run build",
