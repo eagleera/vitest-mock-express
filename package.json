@@ -10,6 +10,8 @@
     "test-watch": "vitest \"/*.ts\" --watchAll",
     "test-watch-all": "vitest --watchAll",
     "lint": "tsc --noEmit && eslint . --quiet --fix",
+    "lint:ci": "tsc --noEmit && eslint . --max-warnings=0",
+    "test:ci": "vitest run --coverage",
     "build": "tsc",
     "clean": "rm -rf dist/*",
     "prepublishOnly": "npm ci && npm run clean && npm run build",
