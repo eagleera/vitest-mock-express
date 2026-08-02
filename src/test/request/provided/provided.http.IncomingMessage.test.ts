@@ -51,6 +51,7 @@ describe('request - Provided for "http.IncomingMessage" (accepts arguments and r
   })
 
   test('req.connection can be provided', () => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const req = getMockReq({ connection: providedSocket as any })
 
     expect(req.connection).toBeDefined()
@@ -58,6 +59,7 @@ describe('request - Provided for "http.IncomingMessage" (accepts arguments and r
   })
 
   test('req.socket can be provided', () => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const req = getMockReq({ socket: providedSocket as any })
 
     expect(req.socket).toBeDefined()

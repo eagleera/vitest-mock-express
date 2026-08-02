@@ -17,5 +17,6 @@
     "resolveJsonModule": true,
     "outDir": "dist",
     "types": ["vitest/globals"]
-  }
+  },
+  "exclude": ["node_modules", "dist", "vitest.config.ts"]
 }

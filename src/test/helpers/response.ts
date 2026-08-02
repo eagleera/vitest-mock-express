@@ -48,7 +48,7 @@ export function callAllFunctions(res: Response) {
 
   /* stream.Writable */
   res._write({}, 'utf-8', vi.fn())
-  res._writev && res._writev([], vi.fn())
+  res._writev?.([], vi.fn())
   res._destroy(null, vi.fn())
   res._final(vi.fn())
   res.write({}, vi.fn())

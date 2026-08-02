@@ -1,0 +1,11 @@
+# Normalize line endings to LF on checkout across all platforms.
+# Keeps Prettier/ESLint happy on Windows where autocrlf would otherwise
+# introduce CRLF and break the `prettier/prettier` rule.
+* text=auto eol=lf
+
+# Explicitly treat common binary assets as binary (never normalized).
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
