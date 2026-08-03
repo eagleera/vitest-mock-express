@@ -4,6 +4,22 @@ A lightweight Vitest mock for unit testing Express
 
 THIS IS A FORK OF [@jest-mock/express](https://github.com/bikk-uk/jest-mock-express) ALL CREDITS GOES TO THE ORIGINAL AUTHOR
 
+## Requirements
+
+| vitest-mock-express | Express | Node    |
+| ------------------- | ------- | ------- |
+| 3.x                 | 5.x     | >= 24   |
+| 2.x                 | 4.x     | >= 18   |
+
+## Upgrading to 3.x
+
+`3.0.0` targets **Express 5** (`@types/express@^5`) and drops the two members Express removed in that release:
+
+- `req.param()` — use `req.params` instead.
+- `res.sendfile()` — use `res.sendFile()` instead.
+
+They are no longer created by `getMockReq`/`getMockRes`, and are no longer accepted as provided values. If you assert against either, switch to the replacement above. Everything else is unchanged; stay on `2.x` if you are still on Express 4.
+
 ## Getting Started
 
 Installation:
