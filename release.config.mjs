@@ -1,6 +1,6 @@
 /** @type {import('semantic-release').GlobalConfig} */
 export default {
-  branches: ['master'],
+  branches: ['master', { name: 'beta', prerelease: true }],
   tagFormat: 'v${version}',
   plugins: [
     ['@semantic-release/commit-analyzer', { preset: 'conventionalcommits' }],

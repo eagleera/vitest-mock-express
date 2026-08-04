@@ -166,3 +166,11 @@ Commit messages must follow [Conventional Commits](https://www.conventionalcommi
 | `chore: ...`, `docs: ...`, `test: ...`, `ci: ...` | none    |
 
 Pull requests are squash merged, so the **pull request title** becomes the commit message that is analysed. Title the PR accordingly.
+
+### Prereleases
+
+Pushing to the `beta` branch publishes a prerelease under the npm `beta` dist-tag, leaving `latest` untouched:
+
+`npm install --save-dev vitest-mock-express@beta`
+
+Betas are numbered from the version the branch is heading towards, so work destined for `3.0.0` publishes as `3.0.0-beta.1`, `3.0.0-beta.2`, and so on. Merging `beta` into `master` then cuts the final `3.0.0`.
