@@ -20,6 +20,9 @@ jobs:
       contents: write
       issues: write
       pull-requests: write
+      # Lets npm exchange an OIDC token for a short-lived publish credential,
+      # so no long-lived npm token is stored on the repository.
+      id-token: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -37,6 +40,11 @@ jobs:
           cache: npm
           registry-url: https://registry.npmjs.org
 
+      # Trusted publishing needs npm 11.5.1 or newer, which is not guaranteed
+      # by the npm bundled with the Node 24 runner image.
+      - name: Ensure npm supports trusted publishing
+        run: npm install -g npm@latest
+
       - run: npm ci
       - run: npm run lint:ci
       - run: npm run test:ci
@@ -46,4 +54,3 @@ jobs:
         run: npx semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

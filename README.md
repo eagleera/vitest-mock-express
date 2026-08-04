@@ -156,6 +156,8 @@ test('will respond with the entity from the service', async () => {
 
 Releases are automated with [semantic-release](https://semantic-release.gitbook.io/). Every push to `master` runs the `Publish Release` workflow, which lints, tests, builds, and then derives the next version from the commit messages since the last `v*` tag. There is nothing to bump by hand — the `version` field in `package.json` is a `0.0.0-development` placeholder that semantic-release overwrites at publish time.
 
+Publishing authenticates through [npm trusted publishing](https://docs.npmjs.com/trusted-publishers), so there is no npm token stored on the repository. The workflow requests an OIDC token, npm exchanges it for a credential scoped to that single run, and the published package carries a provenance attestation.
+
 Commit messages must follow [Conventional Commits](https://www.conventionalcommits.org/), since they decide the version:
 
 | Commit                                            | Release |
