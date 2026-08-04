@@ -1,32 +1,49 @@
 name: Publish Release
 
 on:
-  release:
-    types: [created]
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+concurrency:
+  group: publish-release
+  cancel-in-progress: false
+
+permissions:
+  contents: read
 
 jobs:
-  build:
+  release:
+    name: Release
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Checkout
+        uses: actions/checkout@v4
         with:
-          node-version: 24
-          check-latest: true
-      - run: npm ci
-      - run: npm run test-verbose
+          # semantic-release determines the next version from the full tag
+          # history, and authenticates its own push rather than reusing the
+          # checkout credentials.
+          fetch-depth: 0
+          persist-credentials: false
 
-  publish-npm:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: 24
-          check-latest: true
+          node-version: 24.x
+          cache: npm
           registry-url: https://registry.npmjs.org
+
       - run: npm ci
-      - run: npm publish --access public
+      - run: npm run lint:ci
+      - run: npm run test:ci
+      - run: npm run build
+
+      - name: Release
+        run: npx semantic-release
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

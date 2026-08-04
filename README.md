@@ -151,3 +151,18 @@ test('will respond with the entity from the service', async () => {
   expect(next).toBeCalled()
 })
 ```
+
+## Releasing
+
+Releases are automated with [semantic-release](https://semantic-release.gitbook.io/). Every push to `master` runs the `Publish Release` workflow, which lints, tests, builds, and then derives the next version from the commit messages since the last `v*` tag. There is nothing to bump by hand — the `version` field in `package.json` is a `0.0.0-development` placeholder that semantic-release overwrites at publish time.
+
+Commit messages must follow [Conventional Commits](https://www.conventionalcommits.org/), since they decide the version:
+
+| Commit                                            | Release |
+| ------------------------------------------------- | ------- |
+| `fix: ...`                                        | patch   |
+| `feat: ...`                                       | minor   |
+| `feat!: ...` or a `BREAKING CHANGE:` footer       | major   |
+| `chore: ...`, `docs: ...`, `test: ...`, `ci: ...` | none    |
+
+Pull requests are squash merged, so the **pull request title** becomes the commit message that is analysed. Title the PR accordingly.
