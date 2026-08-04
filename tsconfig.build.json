@@ -1,0 +1,5 @@
+{
+  "$schema": "https://www.schemastore.org/tsconfig",
+  "extends": "./tsconfig.json",
+  "exclude": ["node_modules", "dist", "coverage", "src/test", "vitest.config.ts"]
+}

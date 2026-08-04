@@ -82,7 +82,6 @@ export interface MockRequest extends HttpIncomingMessage {
   acceptsEncodings?: Mock
   acceptsLanguages?: Mock
   range?: Mock
-  param?: Mock
   is?: Mock
   app?: Partial<Request['app']>
   res?: Partial<Request['res']>

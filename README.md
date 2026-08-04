@@ -4,6 +4,22 @@ A lightweight Vitest mock for unit testing Express
 
 THIS IS A FORK OF [@jest-mock/express](https://github.com/bikk-uk/jest-mock-express) ALL CREDITS GOES TO THE ORIGINAL AUTHOR
 
+## Requirements
+
+| vitest-mock-express | Express | Node    |
+| ------------------- | ------- | ------- |
+| 3.x                 | 5.x     | >= 24   |
+| 2.x                 | 4.x     | >= 18   |
+
+## Upgrading to 3.x
+
+`3.0.0` targets **Express 5** (`@types/express@^5`) and drops the two members Express removed in that release:
+
+- `req.param()` — use `req.params` instead.
+- `res.sendfile()` — use `res.sendFile()` instead.
+
+They are no longer created by `getMockReq`/`getMockRes`, and are no longer accepted as provided values. If you assert against either, switch to the replacement above. Everything else is unchanged; stay on `2.x` if you are still on Express 4.
+
 ## Getting Started
 
 Installation:
@@ -135,3 +151,28 @@ test('will respond with the entity from the service', async () => {
   expect(next).toBeCalled()
 })
 ```
+
+## Releasing
+
+Releases are automated with [semantic-release](https://semantic-release.gitbook.io/). Every push to `master` runs the `Publish Release` workflow, which lints, tests, builds, and then derives the next version from the commit messages since the last `v*` tag. There is nothing to bump by hand — the `version` field in `package.json` is a `0.0.0-development` placeholder that semantic-release overwrites at publish time.
+
+Publishing authenticates through [npm trusted publishing](https://docs.npmjs.com/trusted-publishers), so there is no npm token stored on the repository. The workflow requests an OIDC token, npm exchanges it for a credential scoped to that single run, and the published package carries a provenance attestation.
+
+Commit messages must follow [Conventional Commits](https://www.conventionalcommits.org/), since they decide the version:
+
+| Commit                                            | Release |
+| ------------------------------------------------- | ------- |
+| `fix: ...`                                        | patch   |
+| `feat: ...`                                       | minor   |
+| `feat!: ...` or a `BREAKING CHANGE:` footer       | major   |
+| `chore: ...`, `docs: ...`, `test: ...`, `ci: ...` | none    |
+
+Pull requests are squash merged, so the **pull request title** becomes the commit message that is analysed. Title the PR accordingly.
+
+### Prereleases
+
+Pushing to the `beta` branch publishes a prerelease under the npm `beta` dist-tag, leaving `latest` untouched:
+
+`npm install --save-dev vitest-mock-express@beta`
+
+Betas are numbered from the version the branch is heading towards, so work destined for `3.0.0` publishes as `3.0.0-beta.1`, `3.0.0-beta.2`, and so on. Merging `beta` into `master` then cuts the final `3.0.0`.

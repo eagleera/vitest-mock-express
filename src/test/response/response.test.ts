@@ -5,7 +5,7 @@ import { callAllFunctions } from '../helpers/response'
 // Tested Module
 import getMockRes from '../../response/response'
 
-export const DEFAULT_RES_KEY_LENGTH = 84
+export const DEFAULT_RES_KEY_LENGTH = 83
 
 describe('response - General', () => {
   test('the mock res is provided and contains the expected functions', () => {
@@ -82,7 +82,6 @@ describe('response - the mock functions can be cleared', () => {
     expect(res.json).toBeCalledTimes(1)
     expect(res.jsonp).toBeCalledTimes(1)
     expect(res.sendFile).toBeCalledTimes(1)
-    expect(res.sendfile).toBeCalledTimes(1)
     expect(res.download).toBeCalledTimes(1)
     expect(res.contentType).toBeCalledTimes(1)
     expect(res.type).toBeCalledTimes(1)
@@ -168,7 +167,6 @@ describe('response - the mock functions can be cleared', () => {
     expect(res.json).not.toBeCalled()
     expect(res.jsonp).not.toBeCalled()
     expect(res.sendFile).not.toBeCalled()
-    expect(res.sendfile).not.toBeCalled()
     expect(res.download).not.toBeCalled()
     expect(res.contentType).not.toBeCalled()
     expect(res.type).not.toBeCalled()
@@ -258,7 +256,6 @@ describe('response - the mock functions can be cleared', () => {
     expect(res.json).toBeCalledTimes(1)
     expect(res.jsonp).toBeCalledTimes(1)
     expect(res.sendFile).toBeCalledTimes(1)
-    expect(res.sendfile).toBeCalledTimes(1)
     expect(res.download).toBeCalledTimes(1)
     expect(res.contentType).toBeCalledTimes(1)
     expect(res.type).toBeCalledTimes(1)
@@ -344,7 +341,6 @@ describe('response - the mock functions can be cleared', () => {
     expect(res.json).not.toBeCalled()
     expect(res.jsonp).not.toBeCalled()
     expect(res.sendFile).not.toBeCalled()
-    expect(res.sendfile).not.toBeCalled()
     expect(res.download).not.toBeCalled()
     expect(res.contentType).not.toBeCalled()
     expect(res.type).not.toBeCalled()

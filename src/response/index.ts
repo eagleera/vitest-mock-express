@@ -74,7 +74,6 @@ export interface MockResponse extends HttpServerResponse {
   json?: Mock
   jsonp?: Mock
   sendFile?: Mock
-  sendfile?: Mock
   download?: Mock
   contentType?: Mock
   type?: Mock
